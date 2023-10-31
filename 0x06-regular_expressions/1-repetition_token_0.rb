@@ -9,8 +9,8 @@ end
 
 input_str = ARGV[0]
 
-regex = /h+b+n/
+regex = /h+b+t/
 
-matches = input_str.scan(reges)
+matches = input_str.scan(regex)
 
 puts matches.join
