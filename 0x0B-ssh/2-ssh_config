@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-# A script that shows a client configuration file
-PasswordAuthentication no
-IdentityFile ~/.ssh/school
