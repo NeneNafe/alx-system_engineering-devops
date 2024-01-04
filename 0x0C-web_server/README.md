@@ -1,4 +1,4 @@
-PROJECT TITLE: 0x0C. Web server
+PROJECT TITLE: 0x0C-web_server
 
 Tasks
 0. Transfer a file to your server
