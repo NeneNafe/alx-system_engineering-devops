@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# uses redirect me
+
+#!/usr/bin/env bash
+# installing nginx on web server
+
+sudo apt-get update
+
+# we use -y so that we don't answer y
+sudo apt-get install -y nginx
+
+# makes sure that it listens at port 80
+sudo ufw allow 'Nginx HTTP'
+
+# what we need to display
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
+# 302 redirections
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/NeneNafe permanent;"
+sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+
+# checks for any config erros that may have occured
+sudo nginx -t
+
+# restart nginx
+sudo service nginx start
