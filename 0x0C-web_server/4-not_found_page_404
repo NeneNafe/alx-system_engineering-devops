@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-# uses redirect me
-
-#!/usr/bin/env bash
 # installing nginx on web server
 
 sudo apt-get update
