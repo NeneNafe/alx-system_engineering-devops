@@ -2,12 +2,7 @@
 # Copies what is in server 01 to 02 and adding a custom header
 
 sudo apt-get update
-
-# we use -y so that we don't answer y
 sudo apt-get install -y nginx
-
-# makes sure that it listens at port 80
-sudo ufw allow 'Nginx HTTP'
 
 # what we need to display
 echo "Hello World!" | sudo tee /var/www/html/index.html
@@ -19,10 +14,11 @@ sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 strings="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
 
+sudo sed -i "s/listen 80 default_server;/$strings/" /etc/nginx/sites-enabled/default
+
 # Custom HTTP Response header
 sudo sed -i "server_name _/a add_header X-server-By $HOSTNAME;" /etc/nginx/sites-enabled/default
 
-sudo sed -i "s/listen 80 default_server;/$strings/" /etc/nginx/sites-enabled/default
 # checks for any config erros that may have occured
 sudo nginx -t
 
