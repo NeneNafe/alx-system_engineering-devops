@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# creates as backup of all MYSQL databases in the web servers
+if [ -z "$1" ]; then
+    echo "Usage: $0 <mysql_password>"
+    exit 1
+fi
+
+# sets the MySql root password
+mysql_password="$1"
+
+# sets the current date in the required format
+current_date=$(date +'%d-%m-%Y')
+
+# MySQL dump file name
+mysql_dump="backup.sql"
+
+# the compressed archive name
+archive_name="${current_date}.tar.gz"
+
+# the dump command
+mysqldump -u root -p"${mysql_password}" --all-databases > "${mysql_dump}"
+
+# create a compressed archive
+tar -czvf "${archive_name}" "${mysql_dump}"
