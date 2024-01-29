@@ -2,10 +2,10 @@
 """a Python script that thats uses a REST API, for a given employee ID
 , returns information about his/her TODO list progress"""
 
-import requests
 import json
 from sys import argv
 
+import requests
 
 if __name__ == "__main__":
 
