@@ -8,6 +8,7 @@ from sys import argv
 
 
 if __name__ == "__main__":
+
     request_ses = requests.Session()
 
     empid = argv[1]
@@ -19,7 +20,7 @@ if __name__ == "__main__":
     employee_name = request_ses.get(name_url)
 
     json_request = the_employee.json()
-    usr = employee_name.json()['name']
+    usr = employee_name.json()['username']
 
     total_num_tasks = 0
 
