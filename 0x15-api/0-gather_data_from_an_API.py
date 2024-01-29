@@ -3,8 +3,9 @@
 , returns information about his/her TODO list progress"""
 
 import json
-import requests
 from sys import argv
+
+import requests
 
 if __name__ == "__main__":
 
