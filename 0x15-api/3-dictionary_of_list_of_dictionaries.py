@@ -24,7 +24,7 @@ if __name__ == "__main__":
             if task.get('userId') == user.get('id'):
                 task_Dict = {"username": user.get('username'),
                              "task": task.get('title'),
-                             "completed": task.get('complted')}
+                             "completed": task.get('completed')}
                 task_list.append(task_Dict)
         doAll[user.get('id')] = task_list
 
