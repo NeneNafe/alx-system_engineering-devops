@@ -11,7 +11,7 @@ def top_ten(subreddit):
     url = 'https://www.reddit.com/r/{}/hot/.json'.format(subreddit)
     params = {'limit': 10}
     headers = {
-        "User-Agent": "vscode:0x16.api.advanced:v1.0"
+        "User-Agent": "My User Agent 1.0"
     }
 
     response = get(url, headers=headers, params=params)
