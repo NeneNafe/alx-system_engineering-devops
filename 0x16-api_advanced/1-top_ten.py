@@ -14,10 +14,9 @@ def top_ten(subreddit):
         "User-Agent": "vscode:0x16.api.advanced:v1.0"
     }
 
-    response = get(url, headers=headers, params=params, allow_redirects=False)
-    if response.status_code != 200:
+    response = get(url, headers=headers, params=params)
+    if response.status_code == 200:
+        results = response.json()['data']['children']
+        [print(post['data']['title']) for post in results]
+    else:
         print(None)
-        return
-
-    results = response.json()['data']['children']
-    [print(post['data']['title']) for post in results]
