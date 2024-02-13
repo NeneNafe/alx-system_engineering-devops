@@ -2,22 +2,22 @@
 """a function that prints the titles of posts
 """
 
-import requests
+from requests import get
 
 
 def top_ten(subreddit):
     """prints the titles of the first 10 hot posts listed for a given subreddit
     """
-    url = f'https://www.reddit.com/r/{subreddit}/hot/.json'
+    url = 'https://www.reddit.com/r/{}/hot/.json'.format(subreddit)
     params = {'limit': 10}
     headers = {
-        "User-Agent": "vscode:0x16.api.advanced:v1.0. (by /NENENAFE1_)"
+        "User-Agent": "vscode:0x16.api.advanced:v1.0"
     }
 
-    response = requests.get(url, headers=headers, params=params,
-                            allow_redirects=False)
-    if response.status_code == 404:
-        print ("None")
+    response = get(url, headers=headers, params=params, allow_redirects=False)
+    if response.status_code != 200:
+        print(None)
         return
-    results = response.json().get("data")
-    [print(c.get("data").get("title")) for c in results.get("children")]
+
+    results = response.json()['data']['children']
+    [print(post['data']['title']) for post in results]
