@@ -1,6 +1,6 @@
 # a puppet script that corrects an error in a file
 
-$file_edit = '/var/www/hmtl/wp-settings.php'
+$file_edit = '/var/www/html/wp-settings.php'
 
 # This is where we change the line of code
 
