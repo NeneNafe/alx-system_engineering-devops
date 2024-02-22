@@ -7,6 +7,6 @@ content => inline_template('<%= File.read("/etc/default/nginx").gsub(/15/, "4096
 }
 
 -> exec { 'nginx-restart':
-command => 'service nginx restart',
+command => 'nginx restart',
 path    => '/etc/init.d/',
 }
